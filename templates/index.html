@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Mi Portafolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Bienvenido a mi Portafolio</h1>
+    <p>Hola, soy David. Apasionado desarrollador en Python y QA tester de profesión.</p>
+    <nav>
+        <a href="{{ url_for('about') }}">Sobre mí</a>
+        <a href="{{ url_for('projects') }}">Proyectos</a>
+        <a href="{{ url_for('contact') }}">Contacto</a>
+    </nav>
+</body>
+</html>

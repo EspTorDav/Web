@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sobre mí - Mi Portafolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Sobre mí</h1>
+    <p>Información detallada sobre tu experiencia, habilidades y educación.</p>
+    <nav>
+        <a href="{{ url_for('index') }}">Inicio</a>
+        <a href="{{ url_for('projects') }}">Proyectos</a>
+        <a href="{{ url_for('contact') }}">Contacto</a>
+    </nav>
+</body>
+</html>
