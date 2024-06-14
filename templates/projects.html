@@ -6,6 +6,20 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+     <!-- Video de fondo -->
+     <video autoplay muted loop id="video-background">
+        <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+    </video>
+
+    <!-- Icono para volver al inicio -->
+    <div class="icono">
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='icon.png') }}" alt="Mi Foto">
+            <span>David Espinosa</span>
+        </a>
+    </div>
+
     <h1>Proyectos</h1>
     <p>Lista y descripción de tus proyectos más destacados.</p>
     <nav>

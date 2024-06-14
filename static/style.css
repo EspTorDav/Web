@@ -1,0 +1,84 @@
+/* Paleta de colores */
+:root {
+    /*--color-fondo: #0a1426; /* Fondo azul oscuro */
+    --color-texto: #fff; /* Texto blanco */
+    --color-primario: #007bff; /* Azul primario */
+    --color-claro: #4e8cff; /* Azul claro */
+    --color-oscuro: #0056b3; /* Azul oscuro */
+    --color-gris: #667f99; /* Azul grisáceo */
+    --color-destacado: #99c2ff; /* Azul destacado para el párrafo */
+}
+
+/* Estilos para la página de inicio */
+body {
+    font-family: Arial, sans-serif;
+    /*background-color: var(--color-fondo);*/
+   /* color: var(--color-texto);*/
+    margin: 0;
+    padding: 0;
+}
+ /* Estilos para el video de fondo */
+ #video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Para colocar detrás de otros elementos */
+    overflow: hidden; /* Para que no haya desbordamiento */
+    object-fit: cover; /* Para cubrir todo el área */
+}
+
+.icono {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.icono img {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.icono span {
+    font-size: 18px;
+    color: var(--color-texto);
+    vertical-align: middle;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+
+h1 {
+    color: var(--color-primario);
+}
+
+p {
+    color: var(--color-destacado);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--color-primario);
+    color: var(--color-texto);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--color-oscuro);
+    transform: scale(1.1); /* Aumenta el tamaño al 110% */
+}
+
