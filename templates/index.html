@@ -3,37 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portafolio de David Espinosa, Desarrollador de software y QA Tester"
+    />
+    <meta
+      name="keywords"
+      content="portafolio, desarrollador, software, QA Tester, tecnología"
+    />
     <title>Inicio - Mi Portafolio</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
   </head>
+
   <body>
-     <!-- Video de fondo -->
-     <video autoplay muted loop id="video-background">
-        <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
-        Tu navegador no soporta video HTML5.
+    <!-- Video de fondo -->
+    <video autoplay muted loop id="video-background">
+      <source
+        src="{{ url_for('static', filename='background.mp4') }}"
+        type="video/mp4"
+      />
+      Tu navegador no soporta video HTML5.
     </video>
 
-     <!-- Icono para volver al inicio -->
-     <div class="icono">
+    <header>
+      <!--Menú superior-->
+      <nav class="menu">
+        <ul>
+          <li><a href="{{ url_for('about') }}">Sobre mí</a></li>
+          <li><a href="{{ url_for('projects') }}">Proyectos</a></li>
+          <li><a href="{{ url_for('contact') }}">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Icono para volver al inicio -->
+      <div class="icono">
         <a href="{{ url_for('index') }}">
-            <img src="{{ url_for('static', filename='icon.png') }}" alt="Mi Foto">
-            <span>David Espinosa</span>
+          <img
+            src="{{ url_for('static', filename='icon.png') }}"
+            alt="Mi Foto"
+          />
+          <span>David Espinosa</span>
         </a>
+      </div>
+    </header>
+
+    <!-- Icono para volver al inicio -->
+    <div class="icono">
+      <a href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='icon.png') }}" alt="Mi Foto" />
+        <span>David Espinosa</span>
+      </a>
     </div>
 
     <div class="container">
       <h1>Bienvenido a mi Portafolio</h1>
-      <p>
-        Desarrollador de software y QA Tester
-      </p>
-      <nav>
-        <a href="{{ url_for('about') }}" class="btn">Sobre mí</a>
-        <a href="{{ url_for('projects') }}" class="btn">Proyectos</a>
-        <a href="{{ url_for('contact') }}" class="btn">Contacto</a>
-      </nav>
+      <h2>Desarrollador de software y QA Tester</h2>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", function() {
+        // Verificar si se ha hecho scroll hacia abajo más de 100px
+        if (window.scrollY > 100) {
+            // Agregar una clase al header para cambiar su apariencia
+            header.classList.add("scrolled");
+        } else {
+            // Eliminar la clase si se ha vuelto al principio
+            header.classList.remove("scrolled");
+        }
+    });
+});
+    </script>
   </body>
 </html>
