@@ -13,6 +13,10 @@
     />
     <title>Inicio - Mi Portafolio</title>
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
@@ -29,55 +33,118 @@
     </video>
 
     <header>
-      <!--Menú superior-->
-      <nav class="menu">
-        <ul>
-          <li><a href="{{ url_for('about') }}">Sobre mí</a></li>
-          <li><a href="{{ url_for('projects') }}">Proyectos</a></li>
-          <li><a href="{{ url_for('contact') }}">Contacto</a></li>
+      <!-- Menú superior -->
+      <div class="dropdown">
+        <button
+          type="button"
+          class="btn btn-primary dropdown-toggle"
+          data-bs-toggle="dropdown"
+        >
+          &#9776;
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="{{ url_for('index') }}">Inicio</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="{{ url_for('about') }}">Sobre mi</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="{{ url_for('projects') }}"
+              >Proyectos</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" href="{{ url_for('contact') }}"
+              >Contacto</a
+            >
+          </li>
         </ul>
-      </nav>
+      </div>
 
       <!-- Icono para volver al inicio -->
       <div class="icono">
         <a href="{{ url_for('index') }}">
-          <img
-            src="{{ url_for('static', filename='icon.png') }}"
-            alt="Mi Foto"
-          />
-          <span>David Espinosa</span>
+          <img src="{{ url_for('static', filename='icon.png') }}" alt="Icono" />
         </a>
       </div>
     </header>
 
-    <!-- Icono para volver al inicio -->
-    <div class="icono">
-      <a href="{{ url_for('index') }}">
-        <img src="{{ url_for('static', filename='icon.png') }}" alt="Mi Foto" />
-        <span>David Espinosa</span>
-      </a>
+    <div class="container">
+      <h1>HOLA,</h1>
+      <h2 id="indexMessage"></h2>
     </div>
 
-    <div class="container">
-      <h1>Bienvenido a mi Portafolio</h1>
-      <h2>Desarrollador de software y QA Tester</h2>
-    </div>
+    <!-- Footer de ejemplo -->
+    <footer>
+      <p>
+        Gracias por visitar mi portafolio. &copy; 2024 David Espinosa. Todos los
+        derechos reservados.
+      </p>
+    </footer>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-    const header = document.querySelector("header");
-
-    window.addEventListener("scroll", function() {
+      window.addEventListener("scroll", function () {
         // Verificar si se ha hecho scroll hacia abajo más de 100px
         if (window.scrollY > 100) {
-            // Agregar una clase al header para cambiar su apariencia
-            header.classList.add("scrolled");
+          // Agregar una clase al header para cambiar su apariencia
+          header.classList.add("scrolled");
         } else {
-            // Eliminar la clase si se ha vuelto al principio
-            header.classList.remove("scrolled");
+          // Eliminar la clase si se ha vuelto al principio
+          header.classList.remove("scrolled");
         }
-    });
-});
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const messages = [
+          "Mi nombre es David Espinosa",
+          "Soy QA tester y desarrollador en Python",
+          "En mi tiempo libre desarrollo mis proyectos",
+          "Bienvenido a mi web",
+        ];
+        const container = document.getElementById("indexMessage");
+        let currentMessageIndex = 0;
+        let currentCharIndex = 0;
+
+        function type() {
+          const currentMessage = messages[currentMessageIndex];
+          const beforeChar = currentMessage.substring(0, currentCharIndex);
+          const currentChar = currentMessage[currentCharIndex];
+          const afterChar = currentMessage.substring(currentCharIndex + 1);
+
+          container.innerHTML =
+            beforeChar + `<span class="typing-letter">${currentChar}</span>`;
+          currentCharIndex++;
+
+          if (currentCharIndex === currentMessage.length) {
+            setTimeout(() => {
+              currentCharIndex = 0;
+              currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+              setTimeout(type, 2000); // Espera 1 segundo antes de empezar a escribir el siguiente mensaje
+            }, 1000); // Espera 1 segundo antes de borrar el mensaje
+          } else {
+            setTimeout(type, 150); // Velocidad de escritura
+          }
+        }
+        type();
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdownItems = document.querySelectorAll(".dropdown-item");
+        dropdownItems.forEach((item) => {
+          item.addEventListener("click", function (event) {
+            event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+            const url = this.getAttribute("href"); // Obtener la URL del atributo href
+            window.location.href = url; // Redirigir a la URL correspondiente
+          });
+        });
+      });
     </script>
   </body>
 </html>

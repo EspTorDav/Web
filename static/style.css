@@ -5,7 +5,7 @@
     --color-claro: #4e8cff; /* Azul claro */
     --color-oscuro: #0056b3; /* Azul oscuro */
     --color-gris: #667f99; /* Azul grisáceo */
-    --color-destacado: #FDBB00; /* Azul destacado para el párrafo */
+    --color-destacado: #FDBB00; 
 }
 
 /* Estilos para la página de inicio */
@@ -26,27 +26,31 @@ body {
     z-index: -1; /* Para colocar detrás de otros elementos */
     overflow: hidden; /* Para que no haya desbordamiento */
     object-fit: cover; /* Para cubrir todo el área */
+    filter: brightness(50%);
 }
 
 header {
     position: fixed;
-    top: 0;
+    top: 0px;
     right: 0;
     width: 100%;
+    padding-top: 30px;
     z-index: 1000; /* Asegura que esté sobre otros elementos */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 
 /* Estilos cuando se ha hecho scroll */
 header.scrolled {
     /* Estilos modificados */
-    background-color: rgba(0, 0, 0, 0.8); /* Ejemplo de color de fondo */
-    /* Otros estilos que desees */
+    background-color: var(--color-fondo); /* Ejemplo de color de fondo */
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
 }
 
 .icono {
     position: fixed;
-    top: 20px;
-    left: 20px;
     cursor: pointer;
     display: flex; 
 }
@@ -55,54 +59,18 @@ header.scrolled {
     width: 50px;
     height: auto;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-left: 10px;
     vertical-align: middle;
 }
 
-.icono span {
-    font-size: 18px;
-    color: var(--color-texto);
-    vertical-align: middle;
-}
-
-.icono span:hover{
-    text-decoration: underline;
-}
-
-.menu {
+/* Estilos para el menú desplegable */
+.dropdown {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    cursor: pointer;
     display: flex;
-    vertical-align: middle;
+    right: 20px;
 }
 
-.menu ul {
-    list-style: none;
-    margin: 0;
-    padding-top: 15px;
-    vertical-align: middle;
-}
-
-.menu ul li {
-    display: inline-block;
-    margin-left: 20px; /* Espacio entre elementos del menú */
-}
-
-.menu ul li a {
-    color: var(--color-texto); /* Color del texto del menú */
-    font-size: 20px;
-    text-decoration: none;
-    font-style: normal;
-    padding: 10px 15px;
-    transition: background-color 0.3s ease; /* Efecto de transición al pasar el ratón */
-}
-
-.menu ul li a:hover {
-    color: var(--color-primario); /* Color de fondo al pasar el ratón */
-    text-decoration: underline;
-    font-weight: bold;
-}
 
 .container {
     width: 100%;
@@ -113,14 +81,37 @@ header.scrolled {
 
 
 h1 {
-    color: var(--color-primario);
-    font-family: 'Montserrat'; 
+    color: var(--color-texto);
+    background-color: var(--color-primario);
+    font-family:fantasy; 
+    display:inline;
+    padding: 20px;
 }
 
 h2 {
     color: var(--color-texto);
     font-family: 'Source Sans Pro';
+    margin-top: 30px;
 }
+
+/* Clase para la letra que se está escribiendo */
+.typing-letter {
+    text-decoration: underline;
+    text-decoration-color:var(--color-destacado) /* Subrayado */
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+    color: var(--color-texto);
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
 
 
 
