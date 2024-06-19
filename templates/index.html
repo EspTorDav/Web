@@ -12,14 +12,22 @@
       content="portafolio, desarrollador, software, QA Tester, tecnología"
     />
     <title>David Espinosa</title>
-    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='img/favicon.ico') }}"
+      type="image/x-icon"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
+      href="{{ url_for('static', filename='css/devicon_icons.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
     />
   </head>
 
@@ -27,7 +35,7 @@
     <!-- Video de fondo -->
     <video autoplay muted loop id="video-background">
       <source
-        src="{{ url_for('static', filename='background.mp4') }}"
+        src="{{ url_for('static', filename='video/background.mp4') }}"
         type="video/mp4"
       />
       Tu navegador no soporta video HTML5.
@@ -67,87 +75,123 @@
       <!-- Icono para volver al inicio -->
       <div class="icono">
         <a href="{{ url_for('index') }}">
-          <img src="{{ url_for('static', filename='icon.png') }}" alt="Icono" />
+          <img src="{{ url_for('static', filename='img/icon.png') }}" alt="Icono" />
         </a>
       </div>
     </header>
 
-    <div class="container">
+    <!-- Texto central-->
+     <div class="container" id="intro-container">
       <h1>HOLA,</h1>
       <h2 id="indexMessage"></h2>
+    </div>
+
+    <!-- Habilidades y Tecnologías -->
+    <div class="skills-container" id="skills-container">
+      <div class="skills">
+        <h3>Estas son las tecnologías con las que he trabajado</h3>
+        <div class="row">
+          <div class="col-md-4">
+            <!--Python-->
+            <div class="skill">
+              <i class="devicon-python-plain-wordmark"></i>
+              <div class="progress">
+                <div class="progress-bar" data-percent="80";></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!--SQL-->
+            <div class="skill">
+              <i class="devicon-mysql-plain-wordmark"></i>
+              <div class="progress">
+                <div class="progress-bar" data-percent="80"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!--GIT-->
+            <div class="skill">
+              <i class="devicon-git-plain-wordmark colored"></i>
+              <div class="progress">
+                <div class="progress-bar" data-percent="60"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!--Github-->
+            <div class="skill">
+              <i class="devicon-github-original-wordmark"></i>
+              <div class="progress">
+                <div class="progress-bar" data-percent="60"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!--HTML-->
+            <div class="skill">
+              <i class="devicon-html5-plain-wordmark colored"></i>
+              <div class="progress">
+                <div class="progress-bar" data-percent="40"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!--CSS-->
+            <div class="skill">
+              <i class="devicon-css3-plain-wordmark"></i>
+              <div class="progress">
+                <div class="progress-bar" data-percent="40"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!--JAVA-->
+            <div class="skill">
+              <i class="devicon-java-plain-wordmark colored"></i>
+              <div class="progress">
+                <div class="progress-bar" data-percent="40"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!--JS-->
+            <div class="skill">
+              <i class="devicon-javascript-plain colored"></i>
+              <div class="progress">
+                <div class="progress-bar" data-percent="20"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!--Kotlin-->
+            <div class="skill">
+              <i class="devicon-kotlin-plain-wordmark colored"></i>
+              <div class="progress">
+                <div class="progress-bar" data-percent="20"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>Navega por las distinas secciones para conocer más</h3>
+      </div>
     </div>
 
     <!-- Footer de ejemplo -->
     <footer>
       <p>
-        Gracias por visitar mi portafolio. &copy; 2024 David Espinosa. Todos los
-        derechos reservados.
+        © 2022-2024 DAVID ESPINOSA. QA TESTER Y DESARROLLADOR DE SOFTWARE.
       </p>
     </footer>
 
-    <script>
-      window.addEventListener("scroll", function () {
-        // Verificar si se ha hecho scroll hacia abajo más de 100px
-        if (window.scrollY > 100) {
-          // Agregar una clase al header para cambiar su apariencia
-          header.classList.add("scrolled");
-        } else {
-          // Eliminar la clase si se ha vuelto al principio
-          header.classList.remove("scrolled");
-        }
-      });
-    </script>
+     <!-- Incluir archivos JavaScript  -->
+     {% for js_file in js_files %}
+     <script src="{{ url_for('static', filename=js_file) }}"></script>
+    {% endfor %}
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const messages = [
-          "Mi nombre es David Espinosa",
-          "Soy QA tester y desarrollador en Python",
-          "En mi tiempo libre desarrollo mis proyectos",
-          "Bienvenido a mi web",
-        ];
-        const container = document.getElementById("indexMessage");
-        let currentMessageIndex = 0;
-        let currentCharIndex = 0;
-
-        function type() {
-          const currentMessage = messages[currentMessageIndex];
-          const beforeChar = currentMessage.substring(0, currentCharIndex);
-          const currentChar = currentMessage[currentCharIndex];
-          const afterChar = currentMessage.substring(currentCharIndex + 1);
-
-          container.innerHTML =
-            beforeChar + `<span class="typing-letter">${currentChar}</span>`;
-          currentCharIndex++;
-
-          if (currentCharIndex === currentMessage.length) {
-            setTimeout(() => {
-              currentCharIndex = 0;
-              currentMessageIndex = (currentMessageIndex + 1) % messages.length;
-              setTimeout(type, 2000); // Espera 1 segundo antes de empezar a escribir el siguiente mensaje
-            }, 1000); // Espera 1 segundo antes de borrar el mensaje
-          } else {
-            setTimeout(type, 150); // Velocidad de escritura
-          }
-        }
-        type();
-      });
-    </script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const dropdownItems = document.querySelectorAll(".dropdown-item");
-        dropdownItems.forEach((item) => {
-          item.addEventListener("click", function (event) {
-            event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
-            const url = this.getAttribute("href"); // Obtener la URL del atributo href
-            window.location.href = url; // Redirigir a la URL correspondiente
-          });
-        });
-      });
-    </script>
-
+     <!-- Incluir JavaScript externos -->
+     <script src ="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
+
+  
 </html>

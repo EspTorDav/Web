@@ -1,0 +1,60 @@
+@import url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css');
+
+/* Estilos para todos los iconos de Devicon */
+[class^="devicon-"], /* Para iconos que empiezan con devicon- */
+[class*=" devicon-"] { /* Para iconos que contienen devicon- */
+    font-size: 96px; /* Tamaño base de los iconos */
+    display: flex;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out; /* Transición suave al hacer hover */
+}
+
+/* Efecto de escala al hacer hover */
+[class^="devicon-"]:hover,
+[class*=" devicon-"]:hover {
+    transform: scale(1.2); /* Aumenta el tamaño al hacer hover */
+}
+
+
+
+.devicon-python-plain-wordmark {
+    color: #FFD43B; /* color opcional para el icono */
+}
+
+/*.devicon-mysql-plain-wordmark {
+
+}*/
+
+.devicon-git-plain-wordmark  {
+    color: #f1502f;
+}
+
+/*.devicon-github-original-wordmark {
+
+}*/
+
+/*.devicon-html5-plain-wordmark {
+
+}*/
+
+.devicon-css3-plain-wordmark {
+    color: #1572B6;
+}
+
+/*.devicon-java-plain-wordmark {
+
+}*/
+
+/*.devicon-javascript-plain {
+
+}*/ 
+
+/*.devicon-kotlin-plain-wordmark {
+
+}*/ 
+
+
+
+
+
+
