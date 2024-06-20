@@ -1,3 +1,5 @@
+/* ----ESTILOS COMUNES-------------------------------------------------------------------------------------------------------- */
+
 /* Paleta de colores */
 :root {
     --color-blanco: #fff; /*Color blanco */
@@ -9,7 +11,6 @@
     --color-destacado: #FDBB00; 
 }
 
-/* Estilos para la página de inicio */
 body {
     font-family: 'Lato';
     color: var(--color-blanco);
@@ -41,7 +42,6 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-
 
 .icono {
     position: fixed;
@@ -87,6 +87,19 @@ header {
    background-color: var(--color-oscuro);
    font-weight: bold;
 }
+
+footer {
+    background-color: var(--color-negro); 
+    color: var(--color-blanco);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* ----ESTILOS INDEX.HTML-------------------------------------------------------------------------------------------------------- */
 
 /* Contenedor de bienvenida */
 #intro-container {
@@ -167,15 +180,35 @@ h3 {
     text-decoration-color:var(--color-destacado) /* Subrayado */
 }
 
-footer {
-    background-color: var(--color-negro); 
-    color: var(--color-blanco);
-    text-align: center;
-    position: fixed;
-    bottom: 0;
+
+
+/* ----ESTILOS PROJECTS.HTML-------------------------------------------------------------------------------------------------------- */
+
+.top {
+    position: relative; /* Posición relativa para el contenedor */
+    text-align: center; /* Alineación del texto al centro */
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.top img {
     width: 100%;
-    height: auto;
-    font-family: 'Nunito', sans-serif;
+    height: 600px;
+    filter: brightness(30%);
+    display: block; 
+}
+
+.top h2 {
+    position: absolute; 
+    margin-top: 100px;
+}
+
+.top h3 {
+    position: absolute;
+    margin-top: 200px;
+    font-size: 24px;
 }
 
 

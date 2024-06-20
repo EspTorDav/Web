@@ -17,15 +17,18 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    js_files = get_js_files()
+    return render_template('about.html',js_files=js_files)
 
 @app.route('/projects')
 def projects():
-    return render_template('projects.html')
+    js_files = get_js_files()
+    return render_template('projects.html', js_files=js_files)
 
 @app.route('/contact')
 def contact():
-    return render_template('contact.html')
+    js_files = get_js_files()
+    return render_template('contact.html',js_files=js_files)
 
 if __name__ == '__main__':
     app.run(debug=True)

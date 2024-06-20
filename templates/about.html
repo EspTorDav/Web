@@ -1,31 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Sobre mí - Mi Portafolio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-     <!-- Video de fondo -->
-     <video autoplay muted loop id="video-background">
-        <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
-        Tu navegador no soporta video HTML5.
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portafolio de David Espinosa, Desarrollador de software y QA Tester"
+    />
+    <meta
+      name="keywords"
+      content="portafolio, desarrollador, software, QA Tester, tecnología"
+    />
+    <title>David Espinosa</title>
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='img/favicon.ico') }}"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Video de fondo -->
+    <video autoplay muted loop id="video-background">
+      <source
+        src="{{ url_for('static', filename='video/background.mp4') }}"
+        type="video/mp4"
+      />
+      Tu navegador no soporta video HTML5.
     </video>
 
-    <!-- Icono para volver al inicio -->
-    <div class="icono">
-        <a href="{{ url_for('index') }}">
-            <img src="{{ url_for('static', filename='icon.png') }}" alt="Mi Foto">
-            <span>David Espinosa</span>
-        </a>
-    </div>
+    <header>
+      <!-- Menú superior -->
+      <div class="dropdown">
+        <button
+          type="button"
+          class="btn btn-primary dropdown-toggle"
+          id="toggleButton"
+          data-bs-toggle="dropdown"
+        >
+          &#9776;
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="{{ url_for('index') }}">Inicio</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="{{ url_for('about') }}">Sobre mi</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="{{ url_for('projects') }}"
+              >Proyectos</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" href="{{ url_for('contact') }}"
+              >Contacto</a
+            >
+          </li>
+        </ul>
+      </div>
 
-    <h1>Sobre mí</h1>
-    <p>Información detallada sobre tu experiencia, habilidades y educación.</p>
-    <nav>
-        <a href="{{ url_for('index') }}">Inicio</a>
-        <a href="{{ url_for('projects') }}">Proyectos</a>
-        <a href="{{ url_for('contact') }}">Contacto</a>
-    </nav>
-</body>
+      <!-- Icono para volver al inicio -->
+      <div class="icono">
+        <a href="{{ url_for('index') }}">
+          <img
+            src="{{ url_for('static', filename='img/icon.png') }}"
+            alt="Icono"
+          />
+        </a>
+      </div>
+    </header>
+
+    <footer>
+        <p>
+          © 2022-2024 DAVID ESPINOSA. QA TESTER Y DESARROLLADOR DE SOFTWARE.
+        </p>
+      </footer>
+
+    <!-- Incluir archivos JavaScript  -->
+    {% for js_file in js_files %}
+    <script src="{{ url_for('static', filename=js_file) }}"></script>
+    {% endfor %}
+
+    <!-- Incluir JavaScript externos -->
+    <script src ="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
