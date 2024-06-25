@@ -211,6 +211,38 @@ h3 {
     font-size: 24px;
 }
 
+.proyectos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual ancho */
+    gap: 20px; /* Espacio entre los proyectos */
+    padding: 20px;
+}
+
+.proyecto {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+}
+
+.proyecto h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.proyecto video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.proyecto p {
+    font-size: 16px;
+    color: var(--color-blanco);
+}
+
 
 
 
